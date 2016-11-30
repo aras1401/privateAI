@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AI_Lib.Models.author>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.author_first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author_about)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author_date_of_birth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author_gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author_website)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.author_first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author_about)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author_date_of_birth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author_gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author_website)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.author_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.author_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.author_id })
+        </td>
+    </tr>
+}
+
+</table>
