@@ -181,25 +181,28 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRoles.cs">
+    <Compile Include="Models\AspNetRoles.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AspNetUserClaims.cs">
+    <Compile Include="Models\AspNetUserClaims.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AspNetUserLogins.cs">
+    <Compile Include="Models\AspNetUserLogins.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AspNetUsers.cs">
+    <Compile Include="Models\AspNetUsers.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\author.cs">
+    <Compile Include="Models\author.cs" />
+    <Compile Include="Models\author.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\book.cs">
+    <Compile Include="Models\book.cs" />
+    <Compile Include="Models\book.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\category.cs">
+    <Compile Include="Models\category.cs" />
+    <Compile Include="Models\category.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModel.Context.cs">
@@ -219,13 +222,13 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\publisher.cs">
+    <Compile Include="Models\publisher.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\user.cs">
+    <Compile Include="Models\user.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\user_roles.cs">
+    <Compile Include="Models\user_roles.generated.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

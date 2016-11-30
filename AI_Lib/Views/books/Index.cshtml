@@ -68,7 +68,7 @@
             @Html.DisplayFor(modelItem => item.book_cover_url)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.author.author_first_name)
+                        @Html.DisplayFor(modelItem => item.author.author_first_name) @Html.DisplayFor(modelItem => item.author.author_name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.category.category_name)
