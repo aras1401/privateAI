@@ -1,0 +1,98 @@
+﻿@model AI_Lib.Models.book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_original_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_original_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_release_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_release_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_isbn_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_isbn_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_page_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_page_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_cover_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_cover_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author.author_first_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author.author_first_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category.category_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.category_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publisher.publisher_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publisher.publisher_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
