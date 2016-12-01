@@ -1,4 +1,6 @@
-﻿@model IEnumerable<AI_Lib.Models.book>
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<AI_Lib.Models.book>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -12,76 +14,79 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.book_title)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().book_title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.book_original_title)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().book_original_title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.book_release_date)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().book_release_date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.book_isbn_no)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().book_isbn_no)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.book_page_no)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().book_page_no)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.book_rate)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().book_rate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.book_cover_url)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().book_cover_url)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.author.author_first_name)
+            Autor
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.category.category_name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().category.category_name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.publisher.publisher_name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().publisher.publisher_name)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_original_title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_release_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_isbn_no)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_page_no)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_rate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.book_cover_url)
-        </td>
-        <td>
-                        @Html.DisplayFor(modelItem => item.author.author_first_name) @Html.DisplayFor(modelItem => item.author.author_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.category.category_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.publisher.publisher_name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.book_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.book_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.book_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_original_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_release_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_isbn_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_page_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_cover_url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author.author_first_name) @Html.DisplayFor(modelItem => item.author.author_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category.category_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publisher.publisher_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.book_id}) |
+                @Html.ActionLink("Details", "Details", new {id = item.book_id}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.book_id})
+            </td>
+        </tr>
+    }
 
 </table>
+<br/>
+@Html.PagedListPager(Model, page => Url.Action("Index",new {page}))
