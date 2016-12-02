@@ -21,7 +21,7 @@ namespace AI_Lib.Controllers
 
             var book = db.book.Include(b => b.author).Include(b => b.category).Include(b => b.publisher);
             
-            //PagedList<book> model = new PagedList<book>(book, page, pageSize);
+
 
             return View(book.OrderBy(t=>t.book_id).ToPagedList(page,pageSize));
         }
