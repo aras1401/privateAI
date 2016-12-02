@@ -1,92 +1,55 @@
-﻿@using PagedList.Mvc
-@model PagedList.IPagedList<AI_Lib.Models.book>
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+﻿@model IEnumerable<AI_Lib.Models.book>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().book_title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().book_original_title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().book_release_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().book_isbn_no)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().book_page_no)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().book_rate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().book_cover_url)
-        </th>
-        <th>
-            Autor
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().category.category_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().publisher.publisher_name)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.book_title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.book_original_title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.book_release_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.book_isbn_no)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.book_page_no)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.book_rate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.book_cover_url)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.author.author_first_name) @Html.DisplayFor(modelItem => item.author.author_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.category.category_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.publisher.publisher_name)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.book_id}) |
-                @Html.ActionLink("Details", "Details", new {id = item.book_id}) |
-                @Html.ActionLink("Delete", "Delete", new {id = item.book_id})
-            </td>
-        </tr>
-    }
+<div class="col-md-3">
+<p class="lead">Kategorie</p>
+<div class="list-group">
+    <a href="#" class="list-group-item">Kategoria 1</a>
+    <a href="#" class="list-group-item">Kategoria 2</a>
+    <a href="#" class="list-group-item">Kategoria 3</a>
+</div>
+ </div>    
 
-</table>
-<br/>
-@Html.PagedListPager(Model, page => Url.Action("Index",new {page}))
+<div class="col-md-9">
+
+    <div class="row">
+        
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <img src="@item.book_cover_url" style="width: 30%" alt="">
+                    <div class="caption">
+                        <h4>
+                        <a> @Html.ActionLink(item.book_title, "Details", new { id = item.book_id })</a>
+                        </h4>
+                        <h5>
+                            <a href="#">@Html.DisplayFor(modelItem => item.author.author_first_name) @Html.DisplayFor(modelItem => item.author.author_name)</a>
+                        </h5>
+                        <p>ISBN: @Html.DisplayFor(modelItem => item.book_isbn_no)</p>
+                        <p>Kategoria: @Html.DisplayFor(modelItem => item.author.author_first_name)</p>
+                        <p>Stron: @Html.DisplayFor(modelItem => item.book_page_no)</p>
+                    </div>
+                    <div class="ratings">
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <button class="btn btn-danger btn-sm pull-right" role="button">Szczegóły</button>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
