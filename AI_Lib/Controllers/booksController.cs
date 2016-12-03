@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AI_Lib.Models;
+using PagedList;
 
 namespace AI_Lib.Controllers
 {
@@ -15,10 +16,14 @@ namespace AI_Lib.Controllers
         private Lib_AIEntities db = new Lib_AIEntities();
 
         // GET: books
-        public ActionResult Index()
+        public ActionResult Index(int page =1 , int pageSize = 10)
         {
+
             var book = db.book.Include(b => b.author).Include(b => b.category).Include(b => b.publisher);
-            return View(book.ToList());
+            
+
+
+            return View(book.OrderBy(t=>t.book_id).ToPagedList(page,pageSize));
         }
 
         // GET: books/Details/5
